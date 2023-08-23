@@ -1,8 +1,7 @@
-FROM node:14-alpine
+FROM node:16
 WORKDIR /app
 COPY package*.json ./
-RUN cat /app/.env
-RUN npm install --only=prod --force
+RUN npm install
 COPY . .
 RUN npm run build
 EXPOSE 5000
